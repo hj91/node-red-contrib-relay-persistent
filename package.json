@@ -1,0 +1,36 @@
+{
+    "name": "node-red-contrib-relay-persistent",
+    "version": "1.0.0",
+    "description": "A Node-RED node for relay with persistent mode.",
+    "keywords": ["node-red", "relay", "persistent", "node"],
+    "author": {
+        "name": "Harshad Joshi",
+        "email": "",
+        "url": ""
+    },
+    "contributors": [
+        "Harshad Joshi <your_email@example.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hj91/node-red-contrib-relay-persistent.git"
+    },
+    "bugs": {
+        "url": "https://github.com/hj91/node-red-contrib-relay-persistent/issues"
+    },
+    "homepage": "https://github.com/hj91/node-red-contrib-relay-persistent",
+    "license": "GPL-3.0",
+    "main": "relay-persistent.js",
+    "node-red": {
+        "nodes": {
+            "relay-persistent": "relay-persistent.js"
+        }
+    },
+    "engines": {
+        "node": ">=8.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
+
