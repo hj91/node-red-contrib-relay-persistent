@@ -1,0 +1,207 @@
+[
+    {
+        "id": "386d729c00117edc",
+        "type": "tab",
+        "label": "persistent-relay",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "31c67ee7ba3c5b78",
+        "type": "comment",
+        "z": "386d729c00117edc",
+        "name": "Persistent Latch Relay",
+        "info": "",
+        "x": 180,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "eb3d014ee28d67ed",
+        "type": "relay-persistent",
+        "z": "386d729c00117edc",
+        "name": "Emergency",
+        "persistent": true,
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "f33009f784e6abdc"
+            ]
+        ],
+        "icon": "font-awesome/fa-history"
+    },
+    {
+        "id": "54717cae93e0e2ab",
+        "type": "inject",
+        "z": "386d729c00117edc",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "795734d9c3a6eb8d"
+            ]
+        ]
+    },
+    {
+        "id": "795734d9c3a6eb8d",
+        "type": "change",
+        "z": "386d729c00117edc",
+        "name": "set msg.topic value to enable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "enable",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "eb3d014ee28d67ed"
+            ]
+        ]
+    },
+    {
+        "id": "0e44d802086d070b",
+        "type": "inject",
+        "z": "386d729c00117edc",
+        "name": "stop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "fc2456fac0db6be3"
+            ]
+        ]
+    },
+    {
+        "id": "fc2456fac0db6be3",
+        "type": "change",
+        "z": "386d729c00117edc",
+        "name": "set msg.topic to value disable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "disable",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "eb3d014ee28d67ed"
+            ]
+        ]
+    },
+    {
+        "id": "c10d3e7d6d2850ad",
+        "type": "inject",
+        "z": "386d729c00117edc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "eb3d014ee28d67ed"
+            ]
+        ]
+    },
+    {
+        "id": "2fa0f5222772bf62",
+        "type": "debug",
+        "z": "386d729c00117edc",
+        "name": "Output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 930,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f33009f784e6abdc",
+        "type": "add",
+        "z": "386d729c00117edc",
+        "name": "",
+        "topic": "",
+        "x": 770,
+        "y": 200,
+        "wires": [
+            [
+                "2fa0f5222772bf62"
+            ]
+        ]
+    }
+]
